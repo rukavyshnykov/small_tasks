@@ -69,14 +69,38 @@ class Circle extends Shape {
 }
 
 class Triangle extends Shape {
-    
+    side1: number
+    side2: number
+    side3: number
 
-    constructor(radius: number) {
+    constructor(side1: number, side2: number, side3: number) {
         super()
-        this.radius = radius
+        this.side1 = side1
+        this.side2 = side2
+        this.side3 = side3
     }
 
     getArea(): number {
-        return Math.PI * Math.pow(this.radius, 2)
+        const halfPer = (this.side1 + this.side2 + this.side3) / 2
+        const formula = halfPer*(halfPer - this.side1)*(halfPer - this.side2)*(halfPer - this.side3)
+        return Math.sqrt(formula)
+    }
+}
+
+class Database {
+    private static instace: Database
+
+    private constructor() {}
+
+    public static getInstance(): Database {
+        if(!Database.instace) {
+            Database.instace = new Database
+        }
+
+        return Database.instace
+    }
+
+    public connect(): void {
+        console.log("Connected to the database.");
     }
 }
