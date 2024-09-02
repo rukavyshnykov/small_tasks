@@ -13,7 +13,7 @@ console.log(counter()); // 2
 console.log(counter()); // 3
 
 ///2
-unction createPerson(initName) {
+function createPerson(initName) {
     let name = initName; 
 
     return {

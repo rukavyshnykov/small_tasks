@@ -58,6 +58,6 @@ function* infiniteCounter() {
   calc.next(); // Start the generator
   console.log(calc.next(10).value); // Provide num1
   console.log(calc.next('-').value); // Provide operator
-  console.log(calc.next(5).value); // Provide num2 and get result
+  console.log(calc.next(5).value); // Provide num2 and get 
 
   //////////////////////////////////////////

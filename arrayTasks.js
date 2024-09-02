@@ -24,7 +24,7 @@ function longestIncreasingSubsequence(arr) {
     for (let i = 1; i < arr.length; i++) {
         for (let j = 0; j < i; j++) {
             if (arr[i] > arr[j]) {
-                dp[i] = Math.max(dp[i], dp[j] + 1);
+                dp[i] = dp[j] + 1
             }
         }
     }
@@ -48,7 +48,7 @@ function mergeIntervals(intervals) {
         const current = intervals[i];
 
         if (current[0] <= lastMerged[1]) {
-            lastMerged[1] = Math.max(lastMerged[1], current[1]);
+            lastMerged[1] = current[1];
         } else {
             merged.push(current);
         }
@@ -79,6 +79,6 @@ function productExceptSelf(nums) {
         }))
     })
     return res
-  }
-  console.log(productExceptSelf([1, 2, 3, 4]));
+}
+console.log(productExceptSelf([1, 2, 3, 4]));
   // Expected output: [24, 12, 8, 6]
