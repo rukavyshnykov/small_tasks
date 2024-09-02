@@ -31,12 +31,33 @@ const merge = <T, K>(obj1: T, obj2: K): T & K => {
 ///4
 
 interface Repository<T> {
-    get(item: T): T
-    add()
+    get(id: string): T | undefined
+    add(item: T): void
+}
+
+type Item = {
+    id: string
+    address: string
+}
+ 
+class InMemoryRepository implements Repository<Item> {
+    private items: Item[] = []
+
+    constructor(item: Item) {
+        this.items.push(item)
+    }
+
+    get(id: string) {
+        return this.items.find(item => item.id === id)
+    }
+
+    add(item: Item) {
+        this.items.push(item)
+    }
 }
 
 ///5
 
-const pluck = () => {
-    
+const pluck = <T>(arr: T[], key: keyof T): T[keyof T][]  => {
+    return arr.map(item => item[key])
 }

@@ -50,3 +50,33 @@ class Person1 {
 }
 
 ///4
+
+abstract class Shape {
+    abstract getArea(): number
+}
+
+class Circle extends Shape {
+    private radius: number
+
+    constructor(radius: number) {
+        super()
+        this.radius = radius
+    }
+
+    getArea(): number {
+        return Math.PI * Math.pow(this.radius, 2)
+    }
+}
+
+class Triangle extends Shape {
+    
+
+    constructor(radius: number) {
+        super()
+        this.radius = radius
+    }
+
+    getArea(): number {
+        return Math.PI * Math.pow(this.radius, 2)
+    }
+}
